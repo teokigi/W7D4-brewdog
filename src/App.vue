@@ -2,13 +2,13 @@
   <div id="container">
     <div class="left">
       <h1>Brewdog Beers</h1>
-      <beer-list :beers="beers"></beer-list>
+      <BeerList :beers="beers"></BeerList>
     </div>
 
     <div class="right">
       <div class="details">
         <h1>Beer Details</h1>
-        <beer-detail v-if="selectedBeer" :beer="selectedBeer"></beer-detail>
+        <BeerDetails v-if="selectedBeer" :beer="selectedBeer"></BeerDetails>
       </div>
       <div class="favourites">
 
@@ -71,8 +71,8 @@ export default {
       this.favouriteBeers = this.favouriteBeers.filter(favBeer => !(favBeer === beer))}
   },
   components: {
-    'beer-list': BeerList,
-    'beer-detail': BeerDetails
+    BeerList,
+    BeerDetails
   }
 }
 </script>
@@ -82,9 +82,12 @@ export default {
     display: flex;
     justify-content: center;
     width: 100%;
+    height:800px;
+    overflow:auto;
     background-image: url("https://images.unsplash.com/photo-1571613316887-6f8d5cbf7ef7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80");
+    background-repeat:no-repeat;
     color: white;
-    text-shadow: 0px 0px 4px black, 0px 0px 4px black, 0px 0px 8px black;
+    text-shadow: 0px 0px 4px black, 0px 0px 8px black;
     font-size: 1.5em;
   }
 
@@ -107,8 +110,9 @@ export default {
   }
 
   div{
-    /* border-style: solid; */
-    /* border-radius: 10px; */
+    border-style: solid;
+    border-radius: 10px;
     padding: 10px;
+    margin:10px;
   }
 </style>

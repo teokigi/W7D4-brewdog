@@ -2,10 +2,11 @@
   <div>
     <h3>{{beer.name}}</h3>
     <p>ABV: {{beer.abv}}</p>
-    <p>Description: {{beer.description}}</p>
+    <p>Description:</p>
+    <p> {{beer.description}}</p>
     <p>Hops:</p>
     <ul>
-      <li v-for="ingredient of beer.ingredients.hops">{{ingredient.name}}</li>
+      <li v-for="ingredient of filterIngredients()">{{ingredient}}</li>
     </ul>
     <p>Malts:</p>
     <ul>
@@ -22,26 +23,17 @@ import {eventBus} from '../main.js'
 export default {
   name: 'beer-detail',
   props: ['beer'],
-  data() {
-    return {
-    beerIngredients: null
-    }
-  },
   methods: {
     saveBeer() {
       eventBus.$emit('fave-beer', this.beer)
-    }
-  },
-  computed: {
-  removeDuplicate: function(){
-      return this.beer.ingredients.hops.map((ingredient) => {
-        return ingredient.name;
-      })
-      .filter((name, index, array) => {
-        return array.indexOf(name) === index;
-      });
+    },
+  filterIngredients(){
+     return this.beer.ingredients.hops.map(ingredient => ingredient.name)
+     .filter((name, index, array) =>array.indexOf(name) === index);
     }
   }
+
+
 }
 </script>
 

@@ -8,7 +8,7 @@
 import BeerItem from './BeerItem.vue'
 
 export default {
-  name: 'beer-list',
+  name: 'beer-list-derp',
   props: ['beers'],
   components: {
     'beer-item': BeerItem
