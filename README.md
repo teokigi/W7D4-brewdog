@@ -4,7 +4,7 @@
 
 Example of building a web app that takes in data from an API to populate list fields.
 
-reinforcing knowledge on: onclick, component listings and component list items. extracting specifically desired data from API
+reinforcing knowledge on: onclick handlers, component listings and component list items. extracting specifically desired data from API
 
 
 ## Project setup
